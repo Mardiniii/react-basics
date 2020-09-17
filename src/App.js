@@ -17,7 +17,11 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    // Two different ways to avoid changing the original `state` object from React
+    // We should update the state inmutably
+    // const persons = this.state.persons.splice();
+    const persons = [...this.state.persons];
+
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
   };
