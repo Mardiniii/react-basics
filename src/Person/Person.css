@@ -1,4 +1,4 @@
-/* This is global CSS. It is not scoped to the Person component.  */
+/* This is global CSS. It is not scoped to the Person component. 
 .Person {
   width: 60%;
   margin: 16px auto;
@@ -6,4 +6,4 @@
   box-shadow: 0 2px 3px #ccc;
   padding: 16px;
   text-align: center;
-}
+} */
