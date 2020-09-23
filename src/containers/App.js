@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import classes from "./App.css";
 
-import Person from "../components/Persons/Person/Person";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
@@ -36,9 +34,9 @@ class App extends Component {
   }
 
   // Not recommended to use
-  componentWillMount() {
-    console.log("[App.js] componentWillMount");
-  }
+  // componentWillMount() {
+  //   console.log("[App.js] componentWillMount");
+  // }
 
   deletePersonHandler = (personIndex) => {
     // Two different ways to avoid changing the original `state` object from React
