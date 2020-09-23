@@ -3,8 +3,37 @@ import React, { useEffect } from "react";
 import classes from "./Cockpit.css";
 
 const Cockpit = (props) => {
+  // Execute hook only by the first time.
+  // Equivalent to componentDidMount
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
+    // Http request...
+    setTimeout(() => {
+      console.log("Saved data to cloud!");
+    }, 1000);
+    return () => {
+      console.log("[Cockpit.js] cleanup work in useEffect");
+    };
+  }, []);
+
+  // Execute hook with field dependency
+  // Everytime `props.persons` changes
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    // Http request...
+    setTimeout(() => {
+      console.log("Saved data to cloud!");
+    }, 1000);
+  }, [props.persons]);
+
+  // Execute for every update cycle
+  // Useful for the cases we need to do something whenever
+  // the component re-renders
+  useEffect(() => {
+    console.log("[Cockpit.js] 2nd useEffect");
+    return () => {
+      console.log("[Cockpit.js] cleanup work in 2nd useEffect");
+    };
   });
 
   const assignedClasses = [];

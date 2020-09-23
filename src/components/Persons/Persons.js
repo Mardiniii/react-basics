@@ -32,6 +32,11 @@ class Persons extends Component {
     console.log(snapshot);
   }
 
+  componentWillUnmount() {
+    // Any code to run right before the component gets removed
+    console.log("[Person.js] componentWillUnmount");
+  }
+
   render() {
     console.log("[Persons.js] rendering...");
     return this.props.persons.map((person, index) => {
