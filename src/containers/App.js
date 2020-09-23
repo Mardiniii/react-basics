@@ -33,6 +33,15 @@ class App extends Component {
     console.log("[App.js] componentDidMount");
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[App.js] shouldComponentUpdate");
+    return true; // should return true or false. True by default
+  }
+
+  componentDidUpdate() {
+    console.log("[App.js] componentDidUpdate");
+  }
+
   // Not recommended to use
   // componentWillMount() {
   //   console.log("[App.js] componentWillMount");
