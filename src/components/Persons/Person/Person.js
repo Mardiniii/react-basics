@@ -1,27 +1,43 @@
 import React, { Component } from "react";
-import WithClass from "../../../hoc/WithClass";
+import Aux from "../../../hoc/Aux";
+import withClassTwo from "../../../hoc/withClassTwo";
 import classes from "./Person.css";
 
 class Person extends Component {
   render() {
     console.log("[Person.js] rendering...");
 
-    // Using A Higher Order Component with classes
-    console.log(classes.Person);
+    // Using A Higher Order Component second approach
     return (
-      <WithClass classes={classes.Person}>
+      <Aux>
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
-        ,<p>{this.props.children}</p>
+        <p>{this.props.children}</p>
         <input
           className="Input"
           type="text"
           onChange={this.props.changed}
           value={this.props.name}
         />
-      </WithClass>
+      </Aux>
     );
+
+    // Using A Higher Order Component with classes
+    // return (
+    //   <WithClass classes={classes.Person}>
+    //     <p onClick={this.props.click}>
+    //       I'm {this.props.name} and I am {this.props.age} years old!
+    //     </p>
+    //     <p>{this.props.children}</p>
+    //     <input
+    //       className="Input"
+    //       type="text"
+    //       onChange={this.props.changed}
+    //       value={this.props.name}
+    //     />
+    //   </WithClass>
+    // );
 
     // Using a High-Order component for wrapping all the elements
     // return (
@@ -29,7 +45,7 @@ class Person extends Component {
     //     <p onClick={this.props.click}>
     //       I'm {this.props.name} and I am {this.props.age} years old!
     //     </p>
-    //     ,<p>{this.props.children}</p>
+    //     <p>{this.props.children}</p>
     //     <input
     //       className="Input"
     //       type="text"
@@ -72,4 +88,4 @@ class Person extends Component {
   }
 }
 
-export default Person;
+export default withClassTwo(Person, classes.Person);
