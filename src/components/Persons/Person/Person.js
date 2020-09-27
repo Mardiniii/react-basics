@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Aux from "../../../hoc/Aux";
 import withClassTwo from "../../../hoc/withClassTwo";
 import classes from "./Person.css";
+import AuthContext from "../../../context/auth-context";
 
 class Person extends Component {
   constructor() {
@@ -23,7 +24,12 @@ class Person extends Component {
     // Using A Higher Order Component second approach
     return (
       <Aux>
-        {this.props.isAuth ? <p>Authenticated</p> : <p>Please Login!</p>}
+        <AuthContext.Consumer>
+          {(context) =>
+            context.authenticated ? <p>Authenticated</p> : <p>Please Login!</p>
+          }
+        </AuthContext.Consumer>
+
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
