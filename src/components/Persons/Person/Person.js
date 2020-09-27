@@ -6,6 +6,17 @@ import withClassTwo from "../../../hoc/withClassTwo";
 import classes from "./Person.css";
 
 class Person extends Component {
+  constructor() {
+    super();
+    this.inputElementRef = React.createRef();
+  }
+
+  componentDidMount() {
+    // functional approach
+    // this.inputElement.focus();
+    this.inputElementRef.current.focus();
+  }
+
   render() {
     console.log("[Person.js] rendering...");
 
@@ -17,6 +28,11 @@ class Person extends Component {
         </p>
         <p>{this.props.children}</p>
         <input
+          // functional approach
+          // ref={(inputEl) => {
+          //   this.inputElement = inputEl;
+          // }}
+          ref={this.inputElementRef}
           className="Input"
           type="text"
           onChange={this.props.changed}
